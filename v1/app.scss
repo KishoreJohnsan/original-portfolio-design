@@ -1,0 +1,379 @@
+@import "./variables";
+//@import "@material/theme/mdc-theme";
+
+//@import "@material/typography/mdc-typography";
+@import "@material/button/mdc-button";
+@import "@material/button";
+@import "@material/switch/mdc-switch";
+@import "@material/card/mdc-card";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Manrope;
+  line-height: 1.5em;
+  min-height: 100%;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.mdc-button {
+  @include mdc-button-ink-color(var(--text-color));
+}
+.resume {
+  @include mdc-button-outline-color(var(--text-color));
+}
+.work-btn {
+  @include mdc-button-outline-color(var(--text-color));
+}
+.mdc-card {
+  @include mdc-card-fill-color(var(--primary-color));
+  @include card(1);
+}
+
+.logo-bg {
+  fill: var(--primary-color);
+}
+.letter {
+  fill: var(--text-color);
+}
+.clip {
+  fill: var(--primary-color);
+}
+
+.mdc-switch {
+  @include mdc-switch-toggled-on-color(#ffffff);
+  @include mdc-switch-toggled-off-color(black);
+  @include mdc-switch-ripple-size(30px);
+}
+
+.switch {
+  padding-top: 10em;
+}
+
+.main-header {
+  @include card(1);
+  background: var(--primary-color);
+}
+
+.main-nav a {
+  font-size: 0.75em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  color: var(--text-color);
+}
+.main-nav ul {
+  margin: 0;
+  padding: 0;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+.container {
+  width: 1200px;
+  max-width: 100%;
+  padding: 0px;
+  margin: 0 auto;
+}
+.main-header .container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.main-nav ul {
+  margin: 0 0 0.5em;
+  text-align: center;
+}
+.main-nav li {
+  display: inline;
+  padding-left: 1em;
+}
+.main-nav a {
+  padding: 0.5em 1.5em;
+}
+
+#loader {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  overflow: visible;
+  background: #000 url("/new.gif") no-repeat center center;
+}
+
+.wrapper {
+  margin: 3em;
+  padding: 1em;
+  display: grid;
+  gap: 3em;
+  grid-template-areas:
+    "intro"
+    "about"
+    "skill"
+    "tools"
+    "work"
+    "footer";
+}
+
+.intro {
+  display: grid;
+  align-items: center;
+  grid-area: intro;
+  grid-template-columns: 1.5fr 2fr;
+}
+
+.section-intro {
+  font-size: 24px;
+  h1 {
+    line-height: 0.8em;
+  }
+  p {
+    line-height: 1.25em;
+  }
+}
+
+.about {
+  grid-area: about;
+}
+.work {
+  grid-area: work;
+}
+
+.work .content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: auto;
+  gap: 4em;
+  padding-top: 1em;
+}
+
+.work .content .card {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  .card-content {
+    padding: 16px;
+  }
+}
+
+.work .work-link {
+  display: grid;
+  grid-template-columns: 0.5fr;
+  margin-top: 5em;
+  justify-content: center;
+}
+
+.skill {
+  grid-area: skill;
+}
+.tools {
+  grid-area: tools;
+}
+
+.skill .content {
+  display: grid;
+  grid-template-columns: repeat(5, 0.5fr);
+  padding-top: 1em;
+  .skill-item {
+    text-align: center;
+  }
+}
+
+.tools .content {
+  display: grid;
+  grid-template-columns: repeat(5, 0.5fr);
+  padding-top: 1em;
+  .skill-item {
+    text-align: center;
+  }
+}
+
+footer {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  // line-height: 1;
+  grid-area: footer;
+  grid-row-end: 10;
+  @include card(1);
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+}
+footer a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.footer-section {
+  margin-left: 2.5em;
+  margin-right: 2.5em;
+  padding: 0.5em;
+  background-color: var(--primary-color);
+  display: grid;
+  grid-template-columns: 1fr 0.1fr;
+}
+.media-list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(3em, 0.01fr));
+}
+.media-list li {
+  margin: 0.125rem 0.625rem;  
+  .svg-inline--fa {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+.link {
+  font-size: 1.15rem;
+}
+
+.card-image.lazy {
+  background-image: none;
+  background-color: #F1F1FA;
+}
+.card-image {
+  background-image: url('https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg');
+  
+}
+
+@media (min-width: 1200px) {
+  .main-header .container {
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 800px) {
+  .wrapper {
+    gap: 1em;
+  }
+  .work .content {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: auto;
+    gap: 4em;
+    padding-top: 2em;
+  }
+
+  .work .work-link {
+    grid-template-columns: 0.8fr;
+    margin-top: 2.5em;
+    .work-btn {
+      @include mdc-button-height(4em);
+    }
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1100px) {
+  .work .content {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: auto;
+    gap: 4em;
+    padding-top: 2em;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1200px) {
+  .work .work-link {
+    grid-template-columns: 0.5fr;
+    margin-top: 2.5em;
+    .work-btn {
+      @include mdc-button-height(4em);
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .wrapper {
+    margin: 0em;
+    padding: 2em;
+    gap: 1em;
+  }
+  .intro {
+    grid-template-columns: 1fr;
+  }
+
+  .about .content {
+    grid-template-columns: 1fr;
+  }
+
+  .work .content {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: 2em;
+  }
+
+  .work .work-link {
+    grid-template-columns: 1.25fr;
+    margin-top: 2.5em;
+    .work-btn {
+      @include mdc-button-height(5em);
+      text-align: center;
+    }
+  }
+
+  .contact .content {
+    grid-template-columns: 1fr;
+  }
+
+  .section-intro {
+    h1 {
+      line-height: 1.5em;
+    }
+    p {
+      line-height: 1.25em;
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .footer-section {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  .media-list {
+    justify-items: center;
+    grid-template-columns: repeat(5, minmax(2em, 1fr));
+  }
+  .main-nav li {
+    padding-left: 0.5em;
+  }
+
+  .work .content .card {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    .card-content {
+      padding: 16px;
+    }
+  }
+
+  .skill .content {
+    display: grid;
+    grid-template-columns: repeat(3, 0.5fr);
+    .skill-item {
+      text-align: center;
+    }
+  }
+
+  .tools .content {
+    display: grid;
+    grid-template-columns: repeat(3, 0.5fr);
+    .skill-item {
+      text-align: center;
+    }
+  }
+}
